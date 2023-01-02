@@ -8,12 +8,18 @@ public class Calender {
 	}
 	
 	public static void main(String[] args) {
-		
-		Scanner scan = new Scanner(System.in);
-		int num = scan.nextInt();
 		Calender cal = new Calender();
-
-		System.out.println(num + "월은 " + cal.getMaxDaysOfMonth(num) + "일까지 있습니다.");
+		Scanner scan = new Scanner(System.in);
 		
+		System.out.println("반복횟수를 입력하세요.");
+		int num = scan.nextInt();
+		
+		for (int i = 0; i < num; i++) {
+			System.out.println("월을 입력하세요.");
+			int month = scan.nextInt();
+			System.out.println(month + "월은 " + cal.getMaxDaysOfMonth(month) + "일까지 있습니다.");
+		}
+
+		scan.close();
 	}
 }
