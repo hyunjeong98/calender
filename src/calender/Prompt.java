@@ -1,14 +1,10 @@
-import java.util.Arrays;
+package calender;
 import java.util.Scanner;
 
-public class Calender {
-	private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	public int getMaxDaysOfMonth(int month) {
-		return MAX_DAYS[month - 1];
-	}
+public class Prompt {
+	private final static String PROMPT = "cal> ";
 	
-	public static void main(String[] args) {
-		String PROMPT="cal> ";
+	public void runPrompt() {
 		Calender cal = new Calender();
 		Scanner scan = new Scanner(System.in);
 		
@@ -24,10 +20,13 @@ public class Calender {
 			if (month > 12) {
 				continue;
 			}
-			System.out.println(month + "월은 " + cal.getMaxDaysOfMonth(month) + "일까지 있습니다.");
+			cal.printCalender(2023, month);
 		}
-		
-		
 		scan.close();
+	}
+
+	public static void main(String[] args) {
+		Prompt p = new Prompt();
+		p.runPrompt();
 	}
 }
