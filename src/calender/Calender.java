@@ -8,20 +8,27 @@ public class Calender {
 		return MAX_DAYS[month - 1];
 	}
 	
-	public void printCalender(int year, int month) {
+	public void printCalender(int year, int month, String weekday) {
 		Calender cal = new Calender();
+		String[] weekdays = {"SU", "MO", "TU", "WE", "TH", "FR", "SA"};
+		int index = Arrays.asList(weekdays).indexOf(weekday);
+		
 		System.out.printf("%4d년%3d월 \n", year, month);
 		System.out.println(" 일 월 화 수 목 금 토");
 		System.out.println("--------------------");
+		for (int i = 0; i < index; i++) {
+			System.out.print("   ");
+		}
 		for (int i = 1; i <= cal.getMaxDaysOfMonth(month); i++) {
 			if (i < 10) {
 				System.out.printf(" %d ", i);
 			} else {
 				System.out.printf("%d ", i);
 			}
-			if (i % 7 == 0) {
+			if (i % 7 == index + 1) {
 				System.out.print("\n");
 			}
+			
 		}
 		System.out.print("\n");
 	}
