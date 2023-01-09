@@ -18,9 +18,6 @@ public class Prompt {
 			System.out.println("월을 입력하세요.");
 			System.out.print(PROMPT_MONTH);
 			month = scan.nextInt();
-			System.out.println("첫번째 요일을 입력하세요. (SU, MO, TU, WE, TH, FR, SA)");
-			System.out.print(PROMPT_WEEKDAY);
-			String weekday = scan.next();
 			if (month == -1) {
 				System.out.println("Have a nice day!");
 				break;
@@ -28,7 +25,7 @@ public class Prompt {
 			if (month > 12) {
 				continue;
 			}
-			cal.printCalender(year, month, weekday);
+			cal.printCalender(year, month, cal.getStartWeekday(year, month));
 		}
 		scan.close();
 	}
